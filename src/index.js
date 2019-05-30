@@ -1,12 +1,29 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from 'react'
+import ReactDom from 'react-dom'
+import {HashRouter as Router, Route, Link} from 'react-router-dom'
+import './styles/index.css'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import SongSheets from './pages/SongSheets';
+import Home from './pages/Home';
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      userId: 32953014
+    }
+  }
+  
+  render() {
+    return (
+      <Router>
+        <Link to={'/sheets/'+this.state.userId}>歌单</Link>
+        <Route path='/' component={Home}/>
+        <Route exact path="/sheets/:id" component={SongSheets}/>
+      </Router>
+    )
+  }
+}
+
+ReactDom.render(<App/>,
+  document.getElementById('root'))

@@ -1,0 +1,8 @@
+
+
+ul li{
+    padding: 10px 30px;
+}
+ul li:nth-child(2n){
+    background: rgba(189, 245, 248, 0.33);
+}
