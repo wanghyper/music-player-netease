@@ -1,0 +1,42 @@
+.listSheets
+
+  & > a
+    position relative
+    display: flex;
+    height: 60px;
+
+    &:nth-child(2n + 1)
+      background: #bdf5f8
+
+    .trail
+      flex-shrink 0
+      height 60px
+      line-height @height
+
+      img
+        height 30px
+        width 30px
+        vertical-align middle
+
+    & > img
+      flex-shrink 0
+      width: 60px;
+      height: 60px;
+      background-color: rgba(0, 0, 0, 0.5)
+
+    .name
+      flex-grow 1
+      padding 8px
+      font-size 18px
+      color: #454545
+      overflow hidden
+      white-space nowrap
+      text-overflow ellipsis
+
+      .title
+        font-weight 500
+
+
+      .subtitle
+        font-size small
+        color @color * 0.4

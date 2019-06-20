@@ -1,0 +1,81 @@
+.login
+  display flex
+  flex-direction column
+  justify-content space-evenly
+  align-items center
+  height: 100vh
+  padding 0
+  margin 0
+  border 0
+  background-color #d43c33
+
+
+  .title
+    color: #eeeaec
+    font-size 25px
+    font-weight bold
+    img
+      width 220px
+      height 60px
+
+  .wrapper
+    .login-type
+      width 350px
+      font-size 20px
+      margin-bottom -1px
+
+      & > div
+        display inline-block
+        border-top-left-radius 10px
+        border-top-right-radius 10px
+        padding 10px
+        color: #d43c33
+        background: rgba(255, 255, 255, 0.81)
+
+        &.curr
+          background: #fff
+    .panel
+      font-size 16px
+      margin 0
+      width 300px
+      padding 25px
+      border-top-right-radius 10px
+      border-bottom-left-radius 10px
+      border-bottom-right-radius 10px
+      background: #fff
+
+      input
+      button
+        font-size 18px
+        box-sizing border-box
+        outline none
+        width 100%
+        border 1px solid #d43c33
+        padding 10px 16px
+        border-radius 4px
+        color: #d43c33
+        background-color rgba(255, 255, 255, 0)
+
+      input
+        box-shadow 0 0 2px rgba(255, 255, 255, 0.71)
+        &::-webkit-input-placeholder
+          color: #d43c33
+          opacity 80%
+        &:focus
+          box-shadow 0 0 1px 1px rgba(224, 41, 19, 0.45)
+
+      button
+        color #ffffff
+        background #e02913
+
+        &:hover
+          background #fc2913
+
+      .tip
+        margin 0
+        font-size 14px
+        line-height 1.5em
+        height 1.5em
+        color red
+        text-align center
+        padding 3px 5px

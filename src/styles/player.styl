@@ -1,0 +1,158 @@
+.player
+  width 100%
+  height 100%
+  color: #fff
+
+  .mini
+    overflow hidden
+    display flex
+    align-items center
+    background #000
+    .poster
+      img
+        width 80px
+        height 80px
+        vertical-align top
+        background: rgba(213, 213, 213, 0.53)
+
+    .song
+      flex-grow 1
+      overflow hidden
+
+      .info
+        height 30px
+        line-height @height
+        text-align center
+        white-space nowrap
+        overflow hidden
+        text-overflow ellipsis
+
+      .buttons
+        display flex
+        justify-content center
+        align-items center
+
+        & > div
+          padding-top 5px
+          margin 0 5px
+
+          svg
+            width 40px
+            height 40px
+
+    .list-icon
+      margin 0 10px
+      svg
+        width 30px
+        height 30px
+//展开后的样式
+  .full
+    position fixed
+    bottom 0
+    left 0
+    z-index 100
+    background: #1fb2ba
+    height 80px
+    width 100%
+    display flex
+    flex-direction column
+    transition height 0.3s ease
+    .top//flex下的元素设置高度无效,放到wrapper里设置
+      .wrapper
+        display flex
+        align-items center
+        height 50px
+        background: rgba(0, 0, 0, 0.1)
+        .close
+          width 32px
+          svg
+            transform rotate(90deg)
+        .name
+          flex-grow 1
+          text-align center
+
+    .content
+      text-align center
+      flex-grow 1
+      overflow hidden
+      .lyric
+        position relative
+        margin calc((100vh - 130px) / 2) 0
+        text-align center
+        transition all 0.3s
+        padding 0 10px
+        &>div
+          font-size 18px
+          line-height 20px
+          padding-top 10px
+          &.curr
+            color: #ff0e10
+            text-shadow 0 0 5px #fff953
+    .bottom
+      width 100%
+      background: rgba(0, 0, 0, 0.1)
+      .progress
+        margin-top 10px
+        text-align center
+      .buttons
+        height 50px
+        display flex
+        justify-content center
+        align-items center
+
+        .btn
+          flex-grow 1
+          display flex
+          justify-content center
+          svg
+            width 40px
+            height 40px
+          .playBtn
+            margin 0 10px
+        .mode
+          margin-left 10px
+        .list-icon
+          margin 0 10px
+          svg
+            width 30px
+            height 30px
+
+      .extra
+        display flex
+        justify-content space-evenly
+
+  .playList
+    position absolute
+    bottom 0
+    z-index 100
+    width 100%
+    height 100vh
+    animation fade-in ease-in 0.3s
+    display flex
+    flex-direction column
+    justify-content flex-end
+    color #000000
+    background rgba(0, 0, 0, 0.8)
+    .title
+      font-size 20px
+      padding 10px
+      color #ffffff
+    .songs
+      max-height 80vh
+      overflow-y auto
+      background #e5e5e5
+    .close
+      text-align center
+      background #000000
+      span
+        display inline-block
+        height 40px
+        line-height @height
+        color #ffffff
+        padding 0 10px
+
+@keyframes fade-in
+  from
+    opacity  0
+  to
+    opacity 1

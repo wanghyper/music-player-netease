@@ -1,0 +1,89 @@
+.home
+  padding-top 64px
+
+  header
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    width: 100%;
+    height: 64px;
+    background-color: #d43c33;
+    box-sizing: border-box
+
+    img.logo
+      width: 142px;
+      height: 25px;
+
+    .user
+      float: right
+
+      img
+        width 40px
+        height 40px
+        border-radius 50%
+        vertical-align middle
+
+      span
+        font-size 14px
+        color: #fff
+        vertical-align: middle
+        margin-left 10px
+      &.bigger span
+        font-size 18px
+
+  nav
+    display flex
+    justify-content space-evenly
+    font-size 18px
+    padding 5px 0 10px 0
+    &>div
+      font-weight 500
+      text-align center
+      padding 0 8px
+      &:nth-child(2)
+        flex-grow 1
+      &.curr span
+        position: relative;
+        &:before
+          content: ''
+          position absolute
+          top 100%
+          width 100%
+          height: 2px
+          background: #d43c33
+
+
+
+  h4
+    margin 0.5em 0
+
+  .recommend-sheets
+    width 100%
+    display: flex
+    flex-wrap wrap
+
+    .sheets
+      width 33.3%
+      box-sizing border-box
+      font-size 13px
+
+      img
+        width 100%
+        float left
+      div
+        padding 5px 2px
+        padding-top 100% //使用padding为img占位
+
+      &:nth-child(3n+2)
+        padding 0 1px
+
+      &:nth-child(3n+1)
+        padding 0 2px 0 0
+
+      &:nth-child(3n+3)
+        padding 0 0 0 2px
