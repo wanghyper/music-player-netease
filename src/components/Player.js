@@ -262,7 +262,9 @@ class Player extends React.Component {
   
   componentDidUpdate(prevProps, prevState, snapshot) {
     const state = this.props.player
-    if (prevProps.player.index !== state.index) {
+    if (prevProps.player.index !== state.index
+      || prevProps.player.playList !== state.playList
+      ||!this.audio.src) {
       this.getLyric()
       this.getSrc().then(() => {
         if (state.status === 'PAUSE') {

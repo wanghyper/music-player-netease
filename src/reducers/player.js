@@ -47,7 +47,7 @@ const reducer = (state = initState, action) => {
         newState.index = Math.floor(Math.random() * state.playList.length)
       }
       break
-    case PLAY://可以播放指定歌曲
+    case PLAY://播放指定歌曲
       newState = {
         status: 'PLAYING',
         index: !action.index && action.index !== 0 ? state.index : action.index,
@@ -79,7 +79,7 @@ const reducer = (state = initState, action) => {
       newState = {
         status: state.status,
         index: state.index,
-        playList: [...action.playList, action.song]
+        playList: [...state.playList, action.list]
       }
       break
     default:

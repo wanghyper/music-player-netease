@@ -8,24 +8,25 @@ import {connect} from "react-redux"
 class List extends React.Component {
   constructor(props) {
     super(props)
-   
-    this.state = {
-    }
+    
+    this.state = {}
   }
-  play(index){
+  
+  play(index) {
     const player = this.props.player
     const currSong = player.playList[player.index]
-     if(currSong && (currSong.id === this.props.list[index].id)){
-      if(player.status==='PAUSE'){
+    if (currSong && (currSong.id === this.props.list[index].id)) {
+      if (player.status === 'PAUSE') {
         this.props.play(index)
-      }else{
+      } else {
         this.props.pause()
       }
-    }else{
+    } else {
       this.props.setPlayList(this.props.list)
       this.props.play(index)
     }
   }
+  
   componentDidUpdate(prevProps, prevState, snapshot) {
   
   }
@@ -33,23 +34,27 @@ class List extends React.Component {
   render() {
     const {list, player} = this.props
     const currentIndex = list.findIndex(item =>
-      item.id === (player.playList[player.index]&&player.playList[player.index].id))
+      item.id === (player.playList[player.index] && player.playList[player.index].id))
     const isPlaying = player.status === 'PLAYING'
     if (list.length < 1 && !this.props.loaded) {
       return <div className='ListSong tip'>Loading</div>;
-    }else if(list.length < 1 && this.props.loaded){
+    } else if (list.length < 1 && this.props.loaded) {
       return <div className='ListSong tip'>暂无内容</div>;
     }
     const artists = (item) => {
-      const ar = item.ar || item.song.artists
-      return ar.map(val => val.name).join('/')
+      const ar = item.ar || (item.song && item.song.artists)
+      if (ar && ar.length > 1) {
+        return ar.map(val => val && val.name).join('/')
+      } else {
+        return ''
+      }
     }
     const li = list.map(
-      (item, index) =>
-        <li className={index === currentIndex?'curr':''}
-          onClick={() => {
-          this.play(index)
-        }} key={item.id}>
+      (item, index) => (
+        <li className={index === currentIndex ? 'curr' : ''}
+            onClick={() => {
+              this.play(index)
+            }} key={item.id}>
           <div className="left">
             <div className="name">
               <span>{item.name}</span>
@@ -61,6 +66,7 @@ class List extends React.Component {
             {(index === currentIndex) && isPlaying ? <PauseBtn color='#4d4d4d'/> : <PlayBtn color='#4d4d4d'/>}
           </div>
         </li>
+      )
     )
     return (
       <ul className='ListSong'>
@@ -82,7 +88,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     play(index) {
       dispatch(playAction(index))
     },
-    pause(){
+    pause() {
       dispatch(pauseAction())
     }
   }

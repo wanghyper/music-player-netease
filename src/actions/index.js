@@ -19,10 +19,10 @@ export const setPlayListAction = (playList) => {
     playList
   }
 }
-export const addToPlayList = (song) => {
+export const addToPlayListAction = (list) => {
   return {
     type: AT.ADD_TO_PLAYLIST,
-    song
+    list
   }
 }
 export const playAction = (index) => {

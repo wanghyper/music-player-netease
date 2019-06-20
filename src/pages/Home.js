@@ -5,7 +5,7 @@ import {connect} from "react-redux"
 import {netease} from '../api'
 import logo from '../assets/logo.svg'
 import '../styles/home.styl'
-import {setUserAction} from "../actions"
+import {setUserAction, setPlayListAction, pauseAction} from "../actions"
 import ListSheets from "../components/ListSheets"
 
 class Home extends React.Component {
@@ -47,6 +47,9 @@ class Home extends React.Component {
     this.setState({
       newSongs: res.data.result
     })
+    if(this.props.player.playList.length<1){//当前播放列表为空则添加最新歌曲列表
+      this.props.setPlayList(res.data.result)
+    }
   }
   
   async getTopList() {
@@ -202,13 +205,18 @@ class Home extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.user
+    user: state.user,
+    player: state.player
   }
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     setUser: (user) => {
       dispatch(setUserAction(user))
+    },
+    setPlayList(list){
+      dispatch(setPlayListAction(list))
+      dispatch(pauseAction())
     }
   }
 }
