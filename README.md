@@ -1,4 +1,4 @@
-#音乐播放器 (网易云音乐版)
+# 音乐播放器 (网易云音乐版)
  后台使用NeteaseCloudMusicApi，移动端UI， 支持个人歌单显示，歌曲列表播放，播放器支持滑动定位，歌词显示，技术栈为React + React-Redux + React-Router，仅供学习交流。
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
