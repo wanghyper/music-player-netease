@@ -263,8 +263,7 @@ class Player extends React.Component {
   componentDidUpdate(prevProps, prevState, snapshot) {
     const state = this.props.player
     if (prevProps.player.index !== state.index
-      || prevProps.player.playList !== state.playList
-      ||!this.audio.src) {
+      || prevProps.player.playList !== state.playList) {//切换歌曲或更新列表
       this.getLyric()
       this.getSrc().then(() => {
         if (state.status === 'PAUSE') {

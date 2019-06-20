@@ -5,7 +5,7 @@ const req = axios.create({
   headers: {}
 });
 module.exports = {
-  login(account, password, loginType) {
+  login(account, password, loginType) {//手机登录or邮箱登录
     let url = loginType === 1 ?
       `/login/cellphone?phone=${account}&password=${password}`
       : `/login?email=${account}&password=${password}`

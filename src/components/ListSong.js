@@ -43,7 +43,7 @@ class List extends React.Component {
     }
     const artists = (item) => {
       const ar = item.ar || (item.song && item.song.artists)
-      if (ar && ar.length > 1) {
+      if (ar && ar.length >= 1) {
         return ar.map(val => val && val.name).join('/')
       } else {
         return ''
